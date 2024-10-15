@@ -1,12 +1,9 @@
 import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
-import {
-  selectError,
-  selectLoader,
-  selectFilteredContacts,
-} from "../../redux/contactsSlice";
 import { ProgressBar } from "react-loader-spinner";
+import { selectError, selectLoader } from "../../redux/contacts/selectors";
+import { selectFilteredContacts } from "../../redux/contacts/slice";
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);

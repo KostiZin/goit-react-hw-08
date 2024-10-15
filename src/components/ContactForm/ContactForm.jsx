@@ -3,8 +3,8 @@ import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { addContacts } from "../../redux/contactsOps";
-import { selectError } from "../../redux/contactsSlice";
+import { addContacts } from "../../redux/contacts/operations";
+import { selectError } from "../../redux/contacts/selectors";
 
 const ContactForm = () => {
   const initialValue = {

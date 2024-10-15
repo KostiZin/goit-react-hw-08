@@ -1,6 +1,8 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { addContacts, deleteContacts, fetchContacts } from "./contactsOps";
-import { selectNameFilter } from "./filtersSlice";
+// import { selectNameFilter } from "./filters/selectors";
+import { addContacts, deleteContacts, fetchContacts } from "./operations";
+import { selectContacts } from "./selectors";
+import { selectNameFilter } from "../filters/selectors";
 
 const initialState = {
   contacts: {
@@ -31,7 +33,6 @@ const slice = createSlice({
   //   },
   // },
 
-  
   //============= extraReducers work with server (backend) ===========
   extraReducers: (builder) => {
     builder
@@ -84,9 +85,9 @@ const slice = createSlice({
   },
 });
 
-export const selectContacts = (state) => state.contacts.contacts.items;
-export const selectLoader = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
+// export const selectContacts = (state) => state.contacts.contacts.items;
+// export const selectLoader = (state) => state.contacts.loading;
+// export const selectError = (state) => state.contacts.error;
 
 export const contactsReducer = slice.reducer;
 
