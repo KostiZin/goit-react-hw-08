@@ -3,11 +3,20 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://connections-api.goit.global/";
 
-export const registerUser = createAsyncThunk(
+const setAuthHeader = (token) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = "";
+};
+
+export const register = createAsyncThunk(
   "auth/register",
-  async (body, thinkAPI) => {
+  async (credentials, thinkAPI) => {
     try {
-      const { data } = await axios.post(`users/signup`, body);
+      const { data } = await axios.post(`users/signup`, credentials);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thinkAPI.rejectWithValue(error.message);
@@ -15,11 +24,12 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-export const loginUser = createAsyncThunk(
+export const logIn = createAsyncThunk(
   "auth/login",
-  async (body, thinkAPI) => {
+  async (credentials, thinkAPI) => {
     try {
-      const { data } = await axios.post(`users/login`, body);
+      const { data } = await axios.post(`users/login`, credentials);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thinkAPI.rejectWithValue(error.message);
@@ -27,18 +37,16 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const logoutUser = createAsyncThunk(
-  "auth/logout",
-  async (body, thinkAPI) => {
-    try {
-      const { data } = await axios.post(`users/logout`, body);
+export const logOut = createAsyncThunk("auth/logout", async (_, thinkAPI) => {
+  try {
+    const { data } = await axios.post(`users/logout`);
+    clearAuthHeader();
 
-      return data;
-    } catch (error) {
-      return thinkAPI.rejectWithValue(error.message);
-    }
+    return data;
+  } catch (error) {
+    return thinkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 export const refreshtUser = createAsyncThunk(
   "auth/refresh",

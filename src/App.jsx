@@ -1,10 +1,16 @@
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
+// import ContactForm from "./components/ContactForm/ContactForm";
+// import SearchBox from "./components/SearchBox/SearchBox";
+// import ContactList from "./components/ContactList/ContactList";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import css from "./App.module.css";
 import { fetchContacts } from "./redux/contacts/operations";
+import { NavLink, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import ContactsPage from "./pages/ContactsPage";
+import HomePage from "./pages/HomePage";
+import RegistrationPage from "./pages/RegistrationPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,17 +20,15 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className={css.wrapper}>
-      <h1>Phonebook</h1>
-      <div className={css.wrapperSections}>
-        <div>
-          <ContactForm />
-          <SearchBox />
-        </div>
-        <div className={css.wrapperContacts}>
-          <ContactList />
-        </div>
-      </div>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
