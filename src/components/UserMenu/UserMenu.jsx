@@ -1,7 +1,11 @@
 import React from "react";
 
 const UserMenu = () => {
-  return <div></div>;
+  return (
+    <div>
+      <button>Log out</button>
+    </div>
+  );
 };
 
 export default UserMenu;

@@ -1,62 +1,66 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
+// axios.defaults.baseURL = "https://connections-api.goit.global/";
 
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+export const goitApi = axios.create({
+  baseURL: "https://connections-api.goit.global/",
+});
 
-const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
-};
+// const setAuthHeader = (token) => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = "";
+// };
 
 export const register = createAsyncThunk(
   "auth/register",
-  async (credentials, thinkAPI) => {
+  async (credentials, thunkApi) => {
     try {
-      const { data } = await axios.post(`users/signup`, credentials);
-      setAuthHeader(data.token);
+      const { data } = await goitApi.post(`users/signup`, credentials);
+      // setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return thinkAPI.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
 export const logIn = createAsyncThunk(
   "auth/login",
-  async (credentials, thinkAPI) => {
+  async (credentials, thunkApi) => {
     try {
-      const { data } = await axios.post(`users/login`, credentials);
-      setAuthHeader(data.token);
+      const { data } = await goitApi.post(`users/login`, credentials);
+      // setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return thinkAPI.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
-export const logOut = createAsyncThunk("auth/logout", async (_, thinkAPI) => {
+export const logOut = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
-    const { data } = await axios.post(`users/logout`);
-    clearAuthHeader();
+    const { data } = await goitApi.post(`users/logout`);
+    // clearAuthHeader();
 
     return data;
   } catch (error) {
-    return thinkAPI.rejectWithValue(error.message);
+    return thunkApi.rejectWithValue(error.message);
   }
 });
 
 export const refreshtUser = createAsyncThunk(
   "auth/refresh",
-  async (id, thinkAPI) => {
+  async (id, thunkApi) => {
     try {
-      const { data } = await axios.delete(`/contacts/${id}`);
+      const { data } = await goitApi.delete(`/contacts/${id}`);
 
       return data.id;
     } catch (error) {
-      return thinkAPI.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
