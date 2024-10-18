@@ -1,4 +1,4 @@
-.button {
+.btn {
   padding: 10px;
   background-color: rgb(223, 214, 203);
   border: 1px solid #1c3620;
@@ -37,4 +37,26 @@
   display: flex;
   min-width: 272px;
   max-height: 88px;
+}
+
+.wrapperBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* .btnNotDelete:hover {
+  background-color: green;
+} */
+button.btnNotDelete:hover {
+  background-color: green;
+  color: white;
+  border: 1px solid black;
+}
+
+button.btnDelete:hover {
+  background-color: red;
+  color: white;
+  border: 1px solid black;
 }

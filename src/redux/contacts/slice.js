@@ -1,8 +1,8 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
-// import { selectNameFilter } from "./filters/selectors";
 import { addContacts, deleteContacts, fetchContacts } from "./operations";
 import { selectContacts } from "./selectors";
 import { selectNameFilter } from "../filters/selectors";
+import { logOut } from "../auth/operations";
 
 const initialState = {
   contacts: {
@@ -16,24 +16,6 @@ const slice = createSlice({
   name: "contacts",
   initialState,
 
-  //============= regular reducers work locally ===========
-  // reducers: {
-  //   fetchDataSuccess: (state, action) => {
-  //     state.contacts.items = action.payload;
-  //     state.loading = false;
-  //   },
-
-  //   addContact: (state, action) => {
-  //     state.contacts.items.push(action.payload);
-  //   },
-  //   deleteContact: (state, action) => {
-  //     state.contacts.items = state.contacts.items.filter(
-  //       (contact) => contact.id !== action.payload
-  //     );
-  //   },
-  // },
-
-  //============= extraReducers work with server (backend) ===========
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
@@ -47,6 +29,7 @@ const slice = createSlice({
           (contact) => contact.id !== action.payload
         );
       })
+      .addCase(logOut.fulfilled, () => initialState)
 
       .addMatcher(
         isAnyOf(

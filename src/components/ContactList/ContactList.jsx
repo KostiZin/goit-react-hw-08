@@ -1,14 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
 import { ProgressBar } from "react-loader-spinner";
 import { selectError, selectLoader } from "../../redux/contacts/selectors";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
+import { useEffect } from "react";
+import { fetchContacts } from "../../redux/contacts/operations";
+import { Navigate } from "react-router-dom";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const ContactList = () => {
+  const dispatch = useDispatch();
+
   const contacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectLoader);
   const isError = useSelector(selectError);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" />;
+  }
 
   if (isError) return <h2>Error...Please, reload the page</h2>;
 

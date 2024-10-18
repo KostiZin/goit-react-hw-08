@@ -10,7 +10,7 @@ const buildLinkClass = ({ isActive }) => {
 const AuthNav = () => {
   return (
     <div>
-      <nav>
+      <nav className={s.wrapper}>
         <NavLink className={buildLinkClass} to="/login">
           Login
         </NavLink>

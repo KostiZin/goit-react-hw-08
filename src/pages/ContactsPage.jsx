@@ -18,7 +18,6 @@ const ContactsPage = () => {
           </div>
         </div>
       </div>
-      Hello
     </div>
   );
 };

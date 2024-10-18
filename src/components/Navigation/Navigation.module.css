@@ -2,5 +2,13 @@
 }
 
 .active {
-  color: red;
+  color: rgb(159 58 8 / 90%);
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.wrapper {
+  display: flex;
+  gap: 20px;
+  padding: 0 16px;
 }

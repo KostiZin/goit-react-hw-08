@@ -1,20 +1,26 @@
-import React from "react";
 import Navigation from "../Navigation/Navigation";
 import AuthNav from "../AuthNav/AuthNav";
-import UserMenu from "../UserMenu/UserMenu";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { logOut } from "../../redux/auth/operations";
+import s from "./AppBar.module.css";
 
 const AppBar = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  console.log(isLoggedIn);
   return (
-    <div>
+    <div className={s.wrapper}>
       <Navigation />
+      {isLoggedIn && (
+        // <button type="button" onClick={() => dispatch(logOut())}>
+        //   Log out
+        // </button>
+        <button onClick={() => dispatch(logOut())} className="btn btn-ghost">
+          Log out
+        </button>
+      )}
       {!isLoggedIn && <AuthNav />}
-      {isLoggedIn && <button>Log out</button>}
     </div>
   );
 };
