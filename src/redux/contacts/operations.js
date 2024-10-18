@@ -4,6 +4,8 @@ import { goitApi } from "../auth/operations";
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkApi) => {
+    // if (!setAuthHeader) return null;
+
     try {
       const { data } = await goitApi.get("/contacts");
       return data;

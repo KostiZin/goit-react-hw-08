@@ -37,7 +37,7 @@ const slice = createSlice({
           deleteContacts.pending,
           addContacts.pending
         ),
-        (state, action) => {
+        (state) => {
           state.loading = true;
           state.error = null;
         }
@@ -48,7 +48,7 @@ const slice = createSlice({
           deleteContacts.fulfilled,
           addContacts.fulfilled
         ),
-        (state, action) => {
+        (state) => {
           state.loading = false;
           state.error = null;
         }
@@ -67,10 +67,6 @@ const slice = createSlice({
       );
   },
 });
-
-// export const selectContacts = (state) => state.contacts.contacts.items;
-// export const selectLoader = (state) => state.contacts.loading;
-// export const selectError = (state) => state.contacts.error;
 
 export const contactsReducer = slice.reducer;
 

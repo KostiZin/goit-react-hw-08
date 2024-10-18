@@ -30,12 +30,6 @@ const Contact = ({ id, name, number }) => {
         <div className="modal-box">
           <p className="py-4">Do you really want to delete this contact?</p>
           <div className={css.wrapperBtn}>
-            {/* <button
-              className={`${css.btnDelete} ${css.btn}`}
-                            onClick={() => dispatch(deleteContacts(id))}
-            >
-              Yes
-            </button> */}
             <button
               onClick={() => dispatch(deleteContacts(id))}
               className="btn btn-outline btn-error"
@@ -44,7 +38,6 @@ const Contact = ({ id, name, number }) => {
             </button>
             <form method="dialog">
               <button className="btn btn-outline btn-success">No</button>
-              {/* <button className={`${css.btnNotDelete} ${css.btn}`}>No</button> */}
             </form>
           </div>
           <div className="modal-action"></div>
