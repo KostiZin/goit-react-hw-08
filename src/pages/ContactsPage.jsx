@@ -5,6 +5,7 @@ import s from "../App.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();

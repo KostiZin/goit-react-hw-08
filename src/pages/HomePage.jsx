@@ -1,11 +1,23 @@
+// import { Navigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+import { selectIsLoggedIn } from "../redux/auth/selectors";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn, selectUser } from "../redux/auth/selectors";
+import HomeNotLoggedIn from "../components/HomeNotLoggedIn/HomeNotLoggedIn";
+import HomeLoggedIn from "../components/HomeLoggedIn/HomeLoggedIn";
 
 const HomePage = () => {
-  const userName = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return <div>{isLoggedIn && <div>Welcome, {userName.name}</div>}</div>;
+  return !isLoggedIn ? (
+    <div>
+      <HomeNotLoggedIn />
+    </div>
+  ) : (
+    <div>
+      <HomeLoggedIn />
+    </div>
+  );
 };
 
 export default HomePage;
