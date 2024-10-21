@@ -16,11 +16,11 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  const token = useSelector(selectAuthToken);
+  // const token = useSelector(selectAuthToken);
 
   useEffect(() => {
-    if (token) dispatch(refreshUser());
-  }, [dispatch, token]);
+    if (isRefreshing) dispatch(refreshUser());
+  }, [dispatch, isRefreshing]);
 
   return isRefreshing ? null : (
     <div>
