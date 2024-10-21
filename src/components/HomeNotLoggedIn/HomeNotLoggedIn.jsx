@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 const HomeNotLoggedIn = () => {
-  // double-check naviugate if this way it is OK, because I remember we were using something else BUt I am not sure that it was when we click the button
   const navigate = useNavigate();
+
   return (
     <div>
       <div

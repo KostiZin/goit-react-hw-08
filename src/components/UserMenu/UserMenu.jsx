@@ -6,7 +6,6 @@ const UserMenu = () => {
 
   return (
     <div className="mr-4">
-      {/* <div>{userName.name}, welcome to your phonebook </div> */}
       <button
         onClick={() => dispatch(logOut())}
         className="btn btn-ghost hover:bg-indigo-800 hover:text-white"

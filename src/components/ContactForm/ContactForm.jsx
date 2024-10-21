@@ -52,7 +52,7 @@ const ContactForm = () => {
                 type="text"
                 name="name"
                 className="grow p-2"
-                placeholder="Maria Leondottir"
+                placeholder="Maria Johson"
               />
             </label>
           </div>
@@ -64,7 +64,7 @@ const ContactForm = () => {
                 type="text"
                 name="number"
                 className="grow p-2"
-                placeholder="894563210"
+                placeholder="8895532698"
               />
             </label>
           </div>
@@ -81,81 +81,7 @@ const ContactForm = () => {
         </Form>
       </Formik>
     </div>
-
-    // <div>
-    //   <Formik
-    //     initialValues={initialValue}
-    //     onSubmit={onSubmit}
-    //     validationSchema={formSchema}
-    //   >
-    //     <Form className="gap-24">
-    //       <ErrorMessage className={css.error} name="name" component="span" />
-    //       <label className="input input-bordered flex items-center gap-2">
-    //         Name
-    //         <Field
-    //           type="text"
-    //           name="name"
-    //           className="grow"
-    //           placeholder="Maria Leondottir"
-    //         />
-    //       </label>
-    //       <ErrorMessage className={css.error} name="number" component="span" />
-    //       <label className="input input-bordered flex items-center gap-2">
-    //         Number
-    //         <Field
-    //           type="text"
-    //           name="number"
-    //           className="grow"
-    //           placeholder="784874564"
-    //         />
-    //       </label>
-    //       <button
-    //         className={`${
-    //           !isError
-    //             ? `${css.btnActive} btn btn-outline btn-primary`
-    //             : `${css.btnDisabled} btn btn-outline btn-primary`
-    //         }`}
-    //         type="submit"
-    //       >
-    //         Add contact
-    //       </button>
-    //     </Form>
-    //   </Formik>
-    // </div>
   );
-  // ======================================================================================
-  // return (
-  //   <div>
-  //     <Formik
-  //       initialValues={initialValue}
-  //       onSubmit={onSubmit}
-  //       validationSchema={formSchema}
-  //     >
-  //       <Form className={css.formWrapper}>
-  //         <label className={css.fieldWrapper}>
-  //           <p>Name</p>
-  //           <ErrorMessage className={css.error} name="name" component="span" />
-  //           <Field className={css.field} type="text" name="name" />
-  //         </label>
-  //         <label className={css.fieldWrapper}>
-  //           <p>Number</p>
-  //           <ErrorMessage
-  //             className={css.error}
-  //             name="number"
-  //             component="span"
-  //           />
-  //           <Field className={css.field} type="text" name="number" />
-  //         </label>
-  //         <button
-  //           className={`${!isError ? css.btnActive : css.btnDisabled}`}
-  //           type="submit"
-  //         >
-  //           Add contact
-  //         </button>
-  //       </Form>
-  //     </Formik>
-  //   </div>
-  // );
 };
 
 export default ContactForm;

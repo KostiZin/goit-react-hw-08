@@ -2,7 +2,7 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
   const dispatch = useDispatch();

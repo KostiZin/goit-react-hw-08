@@ -1,6 +1,5 @@
 // import { Navigate } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../redux/auth/selectors";
 import { useSelector } from "react-redux";
 import HomeNotLoggedIn from "../components/HomeNotLoggedIn/HomeNotLoggedIn";

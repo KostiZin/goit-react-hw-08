@@ -1,11 +1,11 @@
-import ContactForm from "../components/ContactForm/ContactForm";
-import SearchBox from "../components/SearchBox/SearchBox";
-import ContactList from "../components/ContactList/ContactList";
-import s from "../App.module.css";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import ContactList from "../../components/ContactList/ContactList";
+import s from "./ContactsPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchContacts } from "../redux/contacts/operations";
-import { selectUser } from "../redux/auth/selectors";
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectUser } from "../../redux/auth/selectors";
 import { Toaster } from "react-hot-toast";
 
 const ContactsPage = () => {
