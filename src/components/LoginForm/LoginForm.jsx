@@ -100,7 +100,10 @@ const LoginForm = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button type="submit" className="btn btn-primary">
+                  <button
+                    type="submit"
+                    className="btn btn-primary bg-indigo-800 border-indigo-800"
+                  >
                     Login
                   </button>
                 </div>

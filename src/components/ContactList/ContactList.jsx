@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
-import css from "./ContactList.module.css";
+import s from "./ContactList.module.css";
 import { ProgressBar } from "react-loader-spinner";
 import { selectError, selectLoader } from "../../redux/contacts/selectors";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
@@ -20,7 +20,7 @@ const ContactList = () => {
   if (isError) return <h2>Error...Please, reload the page</h2>;
 
   return isLoading ? (
-    <div className={css.wrapperLoader}>
+    <div className={s.wrapperLoader}>
       <ProgressBar
         visible={true}
         height="100"
@@ -31,7 +31,7 @@ const ContactList = () => {
       />
     </div>
   ) : (
-    <ul className={css.ul}>
+    <ul className={s.ul}>
       {contacts.map(({ id, name, number }) => (
         <Contact key={id} id={id} name={name} number={number} />
       ))}

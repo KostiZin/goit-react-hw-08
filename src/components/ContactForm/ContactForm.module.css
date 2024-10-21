@@ -16,14 +16,18 @@
   margin: 15px 0;
 }
 
+/* .labelWrapper {
+  margin-top: 12px;
+} */
+
 .field {
   border-radius: 4px;
   border: 1px solid rgb(62, 61, 61);
   height: 28px;
 }
 
-.btnActive {
-  margin: 6px;
+/* .btnActive { */
+/* margin: 6px;
   height: 36px;
   padding: 4px 10px;
   border-radius: 4px;
@@ -35,19 +39,19 @@
     background-color: rgb(244, 223, 197);
     font-weight: bold;
     cursor: pointer;
-  }
-}
+  } */
+/* }
 
-.btnDisabled {
-  margin: 6px;
+.btnDisabled { */
+/* margin: 6px;
   height: 36px;
   padding: 4px 10px;
   border-radius: 4px;
   background-color: rgb(212, 210, 208);
   border: 1px solid rgb(107, 104, 104);
-  transition: 0.4s ease;
-  pointer-events: none;
-}
+  transition: 0.4s ease; */
+/* pointer-events: none;
+} */
 
 .error {
   color: rgb(224, 61, 49);

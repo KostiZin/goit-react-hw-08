@@ -27,13 +27,13 @@ const HomeNotLoggedIn = () => {
             </p>
             <div className="flex justify-center gap-8">
               <button
-                className="btn btn-primary"
+                className="btn btn-primary bg-indigo-800 border-indigo-800"
                 onClick={() => navigate("/login")}
               >
                 Login
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-primary bg-indigo-800 border-indigo-800"
                 onClick={() => navigate("/register")}
               >
                 Sign up

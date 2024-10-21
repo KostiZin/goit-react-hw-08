@@ -26,13 +26,10 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkApi) => {
-    console.log(credentials);
-    console.log(thunkApi);
     try {
       const { data } = await goitApi.post(`users/login`, credentials);
       setAuthHeader(data.token);
 
-      console.log(data);
       return data;
     } catch (error) {
       toast.error("Oops, error...");

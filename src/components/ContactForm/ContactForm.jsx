@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import css from "./ContactForm.module.css";
+import s from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,23 +43,37 @@ const ContactForm = () => {
         onSubmit={onSubmit}
         validationSchema={formSchema}
       >
-        <Form className={css.formWrapper}>
-          <label className={css.fieldWrapper}>
-            <p>Name</p>
-            <ErrorMessage className={css.error} name="name" component="span" />
-            <Field className={css.field} type="text" name="name" />
-          </label>
-          <label className={css.fieldWrapper}>
-            <p>Number</p>
-            <ErrorMessage
-              className={css.error}
-              name="number"
-              component="span"
-            />
-            <Field className={css.field} type="text" name="number" />
-          </label>
+        <Form className="p-6 rounded-lg shadow-md max-w-96 min-w-72 bg-slate-200">
+          <div className="relative">
+            <ErrorMessage className={s.error} name="name" component="span" />
+            <label className="input input-bordered flex items-center gap-2 mt-1 bg-slate-100">
+              Name
+              <Field
+                type="text"
+                name="name"
+                className="grow p-2"
+                placeholder="Maria Leondottir"
+              />
+            </label>
+          </div>
+          <div className="relative mt-3">
+            <ErrorMessage className={s.error} name="number" component="span" />
+            <label className="input input-bordered flex items-center gap-2 mt-1 bg-slate-100">
+              Number
+              <Field
+                type="text"
+                name="number"
+                className="grow p-2"
+                placeholder="894563210"
+              />
+            </label>
+          </div>
           <button
-            className={`${!isError ? css.btnActive : css.btnDisabled}`}
+            className={`${
+              !isError
+                ? `btn btn-outline btn-primary hover:bg-indogo-800 hover w-full mt-5`
+                : `btn-disabled btn btn-outline w-full mt-5`
+            }`}
             type="submit"
           >
             Add contact
@@ -67,7 +81,81 @@ const ContactForm = () => {
         </Form>
       </Formik>
     </div>
+
+    // <div>
+    //   <Formik
+    //     initialValues={initialValue}
+    //     onSubmit={onSubmit}
+    //     validationSchema={formSchema}
+    //   >
+    //     <Form className="gap-24">
+    //       <ErrorMessage className={css.error} name="name" component="span" />
+    //       <label className="input input-bordered flex items-center gap-2">
+    //         Name
+    //         <Field
+    //           type="text"
+    //           name="name"
+    //           className="grow"
+    //           placeholder="Maria Leondottir"
+    //         />
+    //       </label>
+    //       <ErrorMessage className={css.error} name="number" component="span" />
+    //       <label className="input input-bordered flex items-center gap-2">
+    //         Number
+    //         <Field
+    //           type="text"
+    //           name="number"
+    //           className="grow"
+    //           placeholder="784874564"
+    //         />
+    //       </label>
+    //       <button
+    //         className={`${
+    //           !isError
+    //             ? `${css.btnActive} btn btn-outline btn-primary`
+    //             : `${css.btnDisabled} btn btn-outline btn-primary`
+    //         }`}
+    //         type="submit"
+    //       >
+    //         Add contact
+    //       </button>
+    //     </Form>
+    //   </Formik>
+    // </div>
   );
+  // ======================================================================================
+  // return (
+  //   <div>
+  //     <Formik
+  //       initialValues={initialValue}
+  //       onSubmit={onSubmit}
+  //       validationSchema={formSchema}
+  //     >
+  //       <Form className={css.formWrapper}>
+  //         <label className={css.fieldWrapper}>
+  //           <p>Name</p>
+  //           <ErrorMessage className={css.error} name="name" component="span" />
+  //           <Field className={css.field} type="text" name="name" />
+  //         </label>
+  //         <label className={css.fieldWrapper}>
+  //           <p>Number</p>
+  //           <ErrorMessage
+  //             className={css.error}
+  //             name="number"
+  //             component="span"
+  //           />
+  //           <Field className={css.field} type="text" name="number" />
+  //         </label>
+  //         <button
+  //           className={`${!isError ? css.btnActive : css.btnDisabled}`}
+  //           type="submit"
+  //         >
+  //           Add contact
+  //         </button>
+  //       </Form>
+  //     </Formik>
+  //   </div>
+  // );
 };
 
 export default ContactForm;

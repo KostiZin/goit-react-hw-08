@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
   padding: 10px;
   background-color: rgb(223, 214, 203);
   border: 1px solid #1c3620;
@@ -11,24 +11,30 @@
     background-color: rgb(192, 168, 140);
     cursor: pointer;
   }
-}
+} */
 
 .div {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-right: auto;
-  gap: 10px;
+  gap: 10px; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .element {
   display: flex;
   gap: 8px;
   align-items: center;
+  font-size: 16px;
+  color: #333;
 }
 
 .li {
-  background-color: rgb(219, 229, 232);
+  /* background-color: rgb(219, 229, 232);
   padding: 14px;
   text-align: center;
   border: 1px solid #100e0e;
@@ -36,20 +42,35 @@
   font-weight: bold;
   display: flex;
   min-width: 272px;
-  max-height: 88px;
+  max-height: 88px; */
+  /* ============================= */
+  /* padding: 20px;
+  background: #a4b4e1;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+
+  /* ================================== */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #e2e8f0; /* Example background color */
+  border-radius: 8px;
+  border: solid 1px #9397f7;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.wrapperBtn {
+/* .wrapperBtn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-}
+} */
 
 /* .btnNotDelete:hover {
   background-color: green;
 } */
-button.btnNotDelete:hover {
+/* button.btnNotDelete:hover {
   background-color: green;
   color: white;
   border: 1px solid black;
@@ -59,4 +80,4 @@ button.btnDelete:hover {
   background-color: red;
   color: white;
   border: 1px solid black;
-}
+} */
