@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { selectIsRefreshing } from "../redux/auth/selectors";
+import { selectAuthToken, selectIsRefreshing } from "../redux/auth/selectors";
 import { refreshUser } from "../redux/auth/operations";
 import { PrivateRoute } from "./PrivateRoute";
 import { RestrictedRoute } from "./RestrictedRoute";
@@ -16,10 +16,11 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const token = useSelector(selectAuthToken);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token) dispatch(refreshUser());
+  }, [dispatch, token]);
 
   return isRefreshing ? null : (
     <div>
