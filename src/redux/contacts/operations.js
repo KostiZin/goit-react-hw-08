@@ -19,7 +19,6 @@ export const addContacts = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const { data } = await goitApi.post(`/contacts`, body);
-      console.log(data);
       toast.success(`Contact ${data.name} was successfully created`);
       return data;
     } catch (error) {
